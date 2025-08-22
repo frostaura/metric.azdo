@@ -1,15 +1,53 @@
 # metric.azdo
 
-A lightweight .NET service for retrieving DORA metrics from Azure DevOps.
+A comprehensive solution for retrieving and visualizing DORA metrics from Azure DevOps, featuring a lightweight .NET API and a beautiful React TypeScript frontend.
 
-## Features
+## 🎯 Components
 
-This API provides simple HTTP endpoints to retrieve DevOps Research and Assessment (DORA) metrics from Azure DevOps projects:
+- **[Backend API](./Metric.Azdo.Api)** - .NET 8 web API for retrieving DORA metrics from Azure DevOps
+- **[Frontend App](./frontend)** - React TypeScript dashboard with Redux for project selection and metrics visualization
 
+## 🚀 Quick Start
+
+### Prerequisites
+- .NET 8.0 SDK
+- Node.js 16+ and npm
+- Azure DevOps organization access with PAT (Personal Access Token)
+
+### 1. Start the API
+```bash
+cd Metric.Azdo.Api
+# Configure your Azure DevOps settings in appsettings.json
+dotnet run
+```
+
+### 2. Start the Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 3. Open the Application
+Navigate to [http://localhost:5173](http://localhost:5173) to view the beautiful DORA metrics dashboard.
+
+## ✨ Features
+
+### Backend API
 - **Deployment Frequency** - How often deployments occur
 - **Lead Time for Changes** - Time from code commit to deployment  
 - **Change Failure Rate** - Percentage of deployments that cause failures
 - **Time to Recovery** - Time to recover from failures
+- RESTful API with Swagger documentation
+- Performance level categorization (Elite, High, Medium, Low)
+
+### Frontend Dashboard
+- 📊 **Project Selection**: Browse and select from available Azure DevOps projects
+- 🎯 **DORA Metrics Dashboard**: Beautiful visualization of all four key metrics
+- 📈 **Performance Levels**: Color-coded performance indicators
+- 📱 **Responsive Design**: Works on desktop and mobile devices
+- 🔄 **Real-time Data**: Connects directly to the API (no static data)
+- ⏱️ **Configurable Time Periods**: View metrics for 7, 30, or 90 days
 
 ## API Endpoints
 
