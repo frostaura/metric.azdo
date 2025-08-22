@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchProjectMetrics, fetchAllProjectsMetrics, setPeriodDays } from '../store/metricsSlice';
+import type { PerformanceLevel } from '../types/api';
 import MetricCard from './MetricCard';
 import './DoraDashboard.css';
 
@@ -104,7 +105,7 @@ const DoraDashboard: React.FC = () => {
             title="Deployment Frequency"
             value={formatValue(selectedProjectMetrics.deploymentFrequency.deploymentsPerDay, "per day")}
             description={`${selectedProjectMetrics.deploymentFrequency.deploymentsCount} deployments in ${periodDays} days`}
-            performanceLevel={selectedProjectMetrics.deploymentFrequency.performanceLevel as any}
+            performanceLevel={selectedProjectMetrics.deploymentFrequency.performanceLevel as PerformanceLevel}
             icon="🚀"
           />
           
@@ -112,7 +113,7 @@ const DoraDashboard: React.FC = () => {
             title="Lead Time for Changes"
             value={formatValue(selectedProjectMetrics.leadTimeForChanges.averageLeadTimeHours, "hours")}
             description="Average time from code commit to deployment"
-            performanceLevel={selectedProjectMetrics.leadTimeForChanges.performanceLevel as any}
+            performanceLevel={selectedProjectMetrics.leadTimeForChanges.performanceLevel as PerformanceLevel}
             icon="⏱️"
           />
           
@@ -120,7 +121,7 @@ const DoraDashboard: React.FC = () => {
             title="Change Failure Rate"
             value={`${selectedProjectMetrics.changeFailureRate.failureRatePercentage.toFixed(1)}%`}
             description={`${selectedProjectMetrics.changeFailureRate.failedDeployments} of ${selectedProjectMetrics.changeFailureRate.totalDeployments} deployments failed`}
-            performanceLevel={selectedProjectMetrics.changeFailureRate.performanceLevel as any}
+            performanceLevel={selectedProjectMetrics.changeFailureRate.performanceLevel as PerformanceLevel}
             icon="🛠️"
           />
           
@@ -128,7 +129,7 @@ const DoraDashboard: React.FC = () => {
             title="Time to Recovery"
             value={formatValue(selectedProjectMetrics.timeToRecovery.averageRecoveryTimeHours, "hours")}
             description="Average time to recover from deployment failures"
-            performanceLevel={selectedProjectMetrics.timeToRecovery.performanceLevel as any}
+            performanceLevel={selectedProjectMetrics.timeToRecovery.performanceLevel as PerformanceLevel}
             icon="🔧"
           />
         </div>
@@ -144,7 +145,7 @@ const DoraDashboard: React.FC = () => {
                   title="Deployment Frequency"
                   value={formatValue(metrics.deploymentFrequency.deploymentsPerDay, "per day")}
                   description={`${metrics.deploymentFrequency.deploymentsCount} deployments`}
-                  performanceLevel={metrics.deploymentFrequency.performanceLevel as any}
+                  performanceLevel={metrics.deploymentFrequency.performanceLevel as PerformanceLevel}
                   icon="🚀"
                 />
                 
@@ -152,7 +153,7 @@ const DoraDashboard: React.FC = () => {
                   title="Lead Time"
                   value={formatValue(metrics.leadTimeForChanges.averageLeadTimeHours, "hours")}
                   description="Avg. lead time"
-                  performanceLevel={metrics.leadTimeForChanges.performanceLevel as any}
+                  performanceLevel={metrics.leadTimeForChanges.performanceLevel as PerformanceLevel}
                   icon="⏱️"
                 />
                 
@@ -160,7 +161,7 @@ const DoraDashboard: React.FC = () => {
                   title="Failure Rate"
                   value={`${metrics.changeFailureRate.failureRatePercentage.toFixed(1)}%`}
                   description="Change failures"
-                  performanceLevel={metrics.changeFailureRate.performanceLevel as any}
+                  performanceLevel={metrics.changeFailureRate.performanceLevel as PerformanceLevel}
                   icon="🛠️"
                 />
                 
@@ -168,7 +169,7 @@ const DoraDashboard: React.FC = () => {
                   title="Recovery Time"
                   value={formatValue(metrics.timeToRecovery.averageRecoveryTimeHours, "hours")}
                   description="Avg. recovery"
-                  performanceLevel={metrics.timeToRecovery.performanceLevel as any}
+                  performanceLevel={metrics.timeToRecovery.performanceLevel as PerformanceLevel}
                   icon="🔧"
                 />
               </div>
