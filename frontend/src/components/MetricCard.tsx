@@ -35,6 +35,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
   return (
     <div 
       className="metric-card"
+      data-performance={performanceLevel.toLowerCase()}
       style={{ '--performance-color': getPerformanceLevelColor(performanceLevel) } as React.CSSProperties}
     >
       <div className="metric-header">
